@@ -1,4 +1,152 @@
 *{
-    margin:0px;
     font-family: 'Montserrat', sans-serif;
 }
+body{
+    background-color: #dbb173;
+    font-family: 'Roboto Slab', serif;
+    margin-top:50px; 
+    margin-left:35px;
+}
+
+/* Styling Nav Bar*/
+#logo{
+    
+    float:left;
+    margin-left:10px;
+    font-family: 'Lobster', cursive;
+    font-size: 20px;
+    margin-top: 15px;
+}
+.nav{
+    background-color: rgba(255,255,255,0.7);
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height: 50px;;
+    z-index: 1;
+    
+ 
+}
+.nav ul{
+    
+   text-align: left;
+    float:left;
+}
+
+.nav ul li{
+    display: inline-block;
+    margin-left: 70px;
+    border-left:2px dotted black;
+    padding-left:10px;
+}
+
+.nav ul li a{
+    text-decoration: none;
+    color:#000000;
+    font-size: 18px;
+}
+.nav ul li a:hover{
+    border-bottom: 1px solid black;
+}
+/*Styling first section "welcome class"*/
+#first{
+    
+    position:absolute;
+    top:0;
+    left:0;
+    z-index: -1;
+    width:100%;
+    height: 400px;
+}
+.welcome h1{
+margin-top:110px;
+line-height: 60px;
+color:#370546;
+
+float:left;
+
+}
+#about{
+margin-top:150px;
+line-height: 60px;
+text-align: justify;
+color:#370546;
+width:450px;
+display: inline-block;
+margin-left: 200px;
+background-color: rgba(231, 251, 218, 0.86);
+
+}
+.devide{
+    display: inline-block;
+    width:300px;
+    padding-left: 20px;
+    border-left: 2px dotted black;
+    border-bottom: 1px solid black;
+    text-align: left;
+    background-color: white;
+    
+
+    
+}
+
+#card1{
+    background: rgba(149, 86, 45, 1);
+    float:left;
+    border-top:1px black solid;
+    border-left:1px black solid;
+    width:200px;
+    height:250px;
+    border-radius: 10%;
+    margin-left:50px;
+    margin-top:20px;
+}
+
+
+#card1 img{
+    margin-left: 13%;
+    border-right:1px solid black;
+    border-radius: 50%;
+    width:150px;
+    
+}
+#card1 h1{
+    text-align: center;
+    color:#cfd6d6;
+    
+}
+
+#final{
+    line-height: 60px;
+    background-color: #ffffff;
+    padding-left: 25px;
+}
+
+#salespage{
+    background-color: rgb(255, 255, 255);
+}
+
+
+
+.fl-table {
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+}
+
+.fl-table td, .fl-table th {
+    text-align: center;
+    padding: 8px;
+}
+
+
+
+
+
