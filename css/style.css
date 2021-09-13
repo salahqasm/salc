@@ -150,3 +150,23 @@ background-color: rgba(231, 251, 218, 0.86);
 
 
 
+#addingLocation{
+
+    border:1px dashed black;
+    border-bottom: 0;
+    text-align: justify;
+    padding-left: 30%;
+}
+#addingLocation *{
+    margin-left:20px;
+    vertical-align: 20px;
+}
+
+#submit{
+    padding:10px;
+    width:200px;
+    
+}
+#submit:hover{
+    background-color: #dbb173;
+}

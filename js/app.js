@@ -4,127 +4,18 @@ let time=['6:00 AM','7:00 AM','8:00 AM','9:00 AM','10:00 AM',
 function random(min,max){
     return Math.floor(Math.random()*(max-min+1)+min);
 }
-//literal obejcts
-// let seattle={
-//     location:"Seattle",
-//     minCust:23,
-//     maxCust:65,
-//     avgCookiesCust:6.3,
-//     custPerHour:[],
-//     avgCookiesPerHour:[],
-//     fillCustPerHour:function(){
-//         for(let i=0;i<time.length;i++)
-//         {
-//         this.custPerHour.push(random(this.minCust,this.maxCust));   
-//         }
-//     },
-//     fillAvgCookiesPerHour:function(){
-//         for(let i=0;i<time.length;i++)
-//         {
-//             this.avgCookiesPerHour.push(Math.floor(this.custPerHour[i]*this.avgCookiesCust));
-//         }
-//     }
-    
-    
-// };
-// let tokyo={
-//     location:"Tokyo",
-//     minCust:3,
-//     maxCust:24,
-//     avgCookiesCust:1.2,
-//     custPerHour:[],
-//     avgCookiesPerHour:[],
-//     fillCustPerHour:function(){
-//         for(let i=0;i<time.length;i++)
-//         {
-//         this.custPerHour.push(random(this.minCust,this.maxCust));   
-//         }
-//     },
-//     fillAvgCookiesPerHour:function(){
-//         for(let i=0;i<time.length;i++)
-//         {
-//             this.avgCookiesPerHour.push(Math.floor(this.custPerHour[i]*this.avgCookiesCust));
-//         }
-//     }
-    
-    
-// };
-// let dubai={
-//     location:"Dubai",
-//     minCust:11,
-//     maxCust:38,
-//     avgCookiesCust:3.7,
-//     custPerHour:[],
-//     avgCookiesPerHour:[],
-//     fillCustPerHour:function(){
-//         for(let i=0;i<time.length;i++)
-//         {
-//         this.custPerHour.push(random(this.minCust,this.maxCust));   
-//         }
-//     },
-//     fillAvgCookiesPerHour:function(){
-//         for(let i=0;i<time.length;i++)
-//         {
-//             this.avgCookiesPerHour.push(Math.floor(this.custPerHour[i]*this.avgCookiesCust));
-//         }
-//     }
-    
-    
-// };
-// let paris={
-//     location:"Paris",
-//     minCust:20,
-//     maxCust:38,
-//     avgCookiesCust:2.3,
-//     custPerHour:[],
-//     avgCookiesPerHour:[],
-//     fillCustPerHour:function(){
-//         for(let i=0;i<time.length;i++)
-//         {
-//         this.custPerHour.push(random(this.minCust,this.maxCust));   
-//         }
-//     },
-//     fillAvgCookiesPerHour:function(){
-//         for(let i=0;i<time.length;i++)
-//         {
-//             this.avgCookiesPerHour.push(Math.floor(this.custPerHour[i]*this.avgCookiesCust));
-//         }
-//     }
-    
-    
-// };
-// let lima={
-//     location:"Lima",
-//     minCust:2,
-//     maxCust:16,
-//     avgCookiesCust:4.6,
-//     custPerHour:[],
-//     avgCookiesPerHour:[],
-//     fillCustPerHour:function(){
-//         for(let i=0;i<time.length;i++)
-//         {
-//         this.custPerHour.push(random(this.minCust,this.maxCust));   
-//         }
-//     },
-//     fillAvgCookiesPerHour:function(){
-//         for(let i=0;i<time.length;i++)
-//         {
-//             this.avgCookiesPerHour.push(Math.floor(this.custPerHour[i]*this.avgCookiesCust));
-//         }
-//     }
-    
-    
-// };
-
 
 //Constructor Function
+let allLocations=[];
 function SalmonCookies(Location,minCust,maxCust,avgCookies)
 {
     this.Location=Location;
     this.minCust=minCust;
     this.maxCust=maxCust;
     this.avgCookies=avgCookies;
+    allLocations.push(this);
 }
+
 SalmonCookies.prototype.fillCustPerHou=function(){
     this.custPerHour=[];
     for (let index = 0; index < time.length; index++) {
@@ -144,13 +35,13 @@ SalmonCookies.prototype.fillAvgCookiesPerHour=function(){
 
 //initializing location objects
 
-let Seattle=new SalmonCookies("Seattle",23,65,6.3);
+ let Seattle=new SalmonCookies("Seattle",23,65,6.3);
  let Tokyo=new SalmonCookies("Tokyo",3,24,1.2);
  let Dubai=new SalmonCookies("Dubai",11,38,3.7);
  let Paris=new SalmonCookies("Paris",20,38,2.3);
  let Lima=new SalmonCookies("Lima",2,16,4.6);
 
- let allLocations=[Seattle,Tokyo,Dubai,Paris,Lima];
+ 
 
  //filling avg arrays
  for (let index = 0; index < allLocations.length; index++){
@@ -173,61 +64,80 @@ table.appendChild(trh);
 let th=document.createElement("th");
 trh.appendChild(th);
 th.textContent="Location";
-for (let i = 0; i < time.length; i++) {
-    let th1=document.createElement("th");
-    trh.appendChild(th1);
-    th1.textContent=`${time[i]}`;
-    
-}
-let lth=document.createElement("th");
-trh.appendChild(lth);
-lth.textContent="Daily Location Total";
 
-
-
-for (let j = 0; j <allLocations.length; j++) {
-    let row=document.createElement("tr");
-    table.appendChild(row);
-    let locationName=document.createElement("td");
-    row.appendChild(locationName);
-    locationName.textContent=allLocations[j].Location;
-    for (let x = 0; x <time.length; x++) {
-        let inner=document.createElement("td");
-        row.appendChild(inner);
-        inner.textContent=allLocations[j].avgCookiesPerHour[x];
+function printall(){
+    for (let i = 0; i < time.length; i++) {
+        let th1=document.createElement("th");
+        trh.appendChild(th1);
+        th1.textContent=`${time[i]}`;
         
     }
-   let daily=document.createElement("td");
-   row.appendChild(daily);
-   let sum=0;
-   for (let i = 0; i < time.length; i++) 
-   { 
-    sum +=allLocations[j].avgCookiesPerHour[i];
-
-   }
-   dailyLocation+=sum;
-   daily.textContent=sum;
-   
-}
-
-//making totals row
-
-let lastrow=document.createElement("tr");
-table.appendChild(lastrow);
-let totals=document.createElement("td");
-lastrow.appendChild(totals);
-totals.textContent="Totals";
-for (let j = 0; j < time.length; j++) {
+    let lth=document.createElement("th");
+    trh.appendChild(lth);
+    lth.textContent="Daily Location Total";
+    
+    
+    
+    for (let j = 0; j <allLocations.length; j++) {
+        let row=document.createElement("tr");
+        table.appendChild(row);
+        let locationName=document.createElement("td");
+        row.appendChild(locationName);
+        locationName.textContent=allLocations[j].Location;
+        for (let x = 0; x <time.length; x++) {
+            let inner=document.createElement("td");
+            row.appendChild(inner);
+            inner.textContent=allLocations[j].avgCookiesPerHour[x];
+            
+        }
+       let daily=document.createElement("td");
+       row.appendChild(daily);
+       let sum=0;
+       for (let i = 0; i < time.length; i++) 
+       { 
+        sum +=allLocations[j].avgCookiesPerHour[i];
+    
+       }
+       dailyLocation+=sum;
+       daily.textContent=sum;
+       
+    }
+    
+    //making totals row
+    
+    let lastrow=document.createElement("tr");
+    table.appendChild(lastrow);
+    let totals=document.createElement("td");
+    lastrow.appendChild(totals);
+    totals.textContent="Totals";
+    for (let j = 0; j < time.length; j++) {
+        let ttd=document.createElement("td");
+        lastrow.appendChild(ttd);
+        let sum=0;
+        for (let i = 0; i < allLocations.length; i++) {
+            sum+=allLocations[i].avgCookiesPerHour[j];
+            
+        }
+        ttd.textContent=sum;
+        
+    }
     let ttd=document.createElement("td");
     lastrow.appendChild(ttd);
-    let sum=0;
-    for (let i = 0; i < allLocations.length; i++) {
-        sum+=allLocations[i].avgCookiesPerHour[j];
-        
-    }
-    ttd.textContent=sum;
+    ttd.textContent=dailyLocation;
+    console.log(allLocations);
     
 }
-let ttd=document.createElement("td");
-lastrow.appendChild(ttd);
-ttd.textContent=dailyLocation;
+printall();
+let button=document.getElementById('submit');
+button.addEventListener('click',function(){
+    let name=document.getElementById('Location').value;
+    let min=document.getElementById('min').value;
+    let max=document.getElementById('max').value;
+    let avg=document.getElementById('avg').value;
+    let x=new SalmonCookies(name,min,max,avg);
+    x.fillCustPerHou();
+    x.fillAvgCookiesPerHour();
+    table.innerHTML = '';
+   printall();
+}
+);

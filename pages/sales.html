@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salmon Cookies Sales Page</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -24,11 +24,27 @@
         </div>
 
     </header>
-    <main>
+    <main id='body'> 
         <h1 class="devide">Sales Page</h1>
-        <p id="salespage">You are in sales page. This page shows how many cookies each store need to prepare for each hour.</p>
+
+        <p id="salespage">You are in sales page. This page shows how many cookies each store need to prepare for each
+            hour.</p>
+
+        <form id="addingLocation">
+
+            <label name="Location" for="Location">Location: </label><input type="text" name="Location" id="Location" >
+            <br>
+            <label name="min" for="min">Minimum Number of Costumer: </label><input type="text" name="min" id="min" >
+            <br>
+            <label name="max" for="max">Max Number of Costumer: </label><input type="text" name="max" id="max" >
+            <br>
+            <label name="avg" for="avg">Average coockies sold per hour: </label><input type="text" name="avg" id="avg" >
+            <br>
+            <button type="button" id="submit" >Add</button>
+        </form>
+
         <table id="salmon" class="fl-table">
-            
+
         </table>
     </main>
     <footer>
